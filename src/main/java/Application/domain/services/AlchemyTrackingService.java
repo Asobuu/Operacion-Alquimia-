@@ -79,6 +79,15 @@ public class AlchemyTrackingService implements AlchemyTrackingUseCase {
     }
 
     @Override
+    public List<DeviceInfo> listRegisteredDeviceInfo() {
+        List<DeviceInfo> result = new ArrayList<>();
+        for (DeviceId deviceId : DeviceId.values()) {
+            repository.findById(deviceId).ifPresent(result::add);
+        }
+        return result;
+    }
+
+    @Override
     public DeviceInfo replaceDeviceInfo(DeviceId deviceId, double distance, String messageFragment) {
         requireDeviceId(deviceId);
         DeviceInfo existing = findExistingOrThrow(deviceId);

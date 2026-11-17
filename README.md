@@ -45,6 +45,7 @@ Estas posiciones están fijas en el código (`DeviceId.java`) porque el enunciad
 | 2.1 Procesar los 3 a la vez | `POST` | `/api/devices/process` | `{"reports":[{"deviceId":"STAR_LABS","distance":...,"messageFragment":"..."}, ... x3]}` |
 | 2.2 Registrar un dispositivo | `POST` | `/api/devices/{deviceId}` | `{"distance":...,"messageFragment":"..."}` |
 | 2.3 Resultado acumulado | `GET` | `/api/devices/result` | — |
+| 2.3 (complementario) Consultar info cruda registrada | `GET` | `/api/devices` | — |
 | 2.4 Reemplazar por completo | `PUT` | `/api/devices/{deviceId}` | `{"distance":...,"messageFragment":"..."}` |
 | 2.5 Actualizar parcialmente | `PATCH` | `/api/devices/{deviceId}` | `{"distance":...}` y/o `{"messageFragment":"..."}` |
 | 2.6 Eliminar | `DELETE` | `/api/devices/{deviceId}` | — |

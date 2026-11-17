@@ -71,6 +71,16 @@ public class AlchemyTrackingController {
         return ResponseEntity.ok(TrackingResultResponse.from(result));
     }
 
+    // 2.3 (complementario) - consultar la informacion cruda recibida de cada
+    // dispositivo hasta el momento, sin ejecutar la trilateracion/reconstruccion
+    @GetMapping
+    public ResponseEntity<List<DeviceInfoResponse>> listRegisteredDeviceInfo() {
+        List<DeviceInfoResponse> response = alchemyTrackingUseCase.listRegisteredDeviceInfo().stream()
+                .map(DeviceInfoResponse::from)
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(response);
+    }
+
     // 2.4 - reemplazar por completo la info de un dispositivo que ya existia
     @PutMapping("/{deviceId}")
     public ResponseEntity<DeviceInfoResponse> replace(@PathVariable String deviceId,

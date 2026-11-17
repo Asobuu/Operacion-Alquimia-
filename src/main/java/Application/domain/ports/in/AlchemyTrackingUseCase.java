@@ -21,6 +21,10 @@ public interface AlchemyTrackingUseCase {
     // 2.3 obtener el resultado acumulado con lo que se ha registrado hasta ahora
     TrackingResult getAccumulatedResult();
 
+    // 2.3 (complementario) consultar la informacion cruda que se ha recibido
+    // de cada dispositivo hasta el momento, sin calcular nada todavia
+    List<DeviceInfo> listRegisteredDeviceInfo();
+
     // 2.4 reemplazar por completo la info de un dispositivo que ya existia
     DeviceInfo replaceDeviceInfo(DeviceId deviceId, double distance, String messageFragment);
 
